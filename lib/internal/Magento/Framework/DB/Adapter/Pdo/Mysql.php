@@ -1668,7 +1668,7 @@ class Mysql extends \Zend_Db_Adapter_Pdo_Mysql implements AdapterInterface
              * Remove bug in some MySQL versions, when int-column without default value is described as:
              * having default empty string value
              */
-            $affected = array('tinyint', 'smallint', 'mediumint', 'int', 'bigint');
+            $affected = array('tinyint', 'smallint', 'mediumint', 'int', 'bigint', 'date');
             foreach ($ddl as $key => $columnData) {
                 if (($columnData['DEFAULT'] === '') && (array_search($columnData['DATA_TYPE'], $affected) !== false)) {
                     $ddl[$key]['DEFAULT'] = null;
